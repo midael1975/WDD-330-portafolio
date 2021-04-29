@@ -12,15 +12,38 @@
             */
 
             function computeAllNumberUp (){
-                
+                let number  = parseFloat(document.getElementById('numberAll').value);
+                let sum = 0;
+
+                for(let i=0; i<=number; i++) {
+                    sum += i;
+
+                }
+
+                // Display the result to the user.
+                document.getElementById('rate').innerHTML = sum;
+
             }
+
+            
+            function adds () {
+                let number  = parseFloat(document.getElementById('numberAll').value);
+                let number1 = parseFloat(document.getElementById('aditional').value);
+                let total = number + number1;
+
+                document.getElementById('rate').innerHTML = total;
+
+            }
+
         </script>
     </head>
 
     <body>
         <h1>Compute Number</h1>
-        Number<input type="text" id="prevPrice"><br>
-        <button type="button" onclick="computeRateOfChange()">Calculate</button><br>
+        Number: <input type="text" id="numberAll"><br><br>
+        Number: <input type="text" id="aditional"><br><br>
+        <button type="button" onclick="computeAllNumberUp()">Calculate</button><br><br>
+        <button type="button" onclick="adds()">Total</button><br><br>
         Result<div id="rate"></div>
 
 
