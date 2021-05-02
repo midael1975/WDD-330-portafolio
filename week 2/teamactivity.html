@@ -1,63 +1,70 @@
 <!DOCTYPE html>
 <html lang="en-us">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Week 2</title>
-        <script>
-            /*Compute number
-            Input: number entered by user
-            Processing: calculate the sum of the numbers.
-            output: the result of the sum
-            */
 
-            function computeAllNumberUp (){
-                let number  = parseFloat(document.getElementById('numberAll').value);
-                let sum = 0;
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Week 2</title>
+    <script>
+        /*Compute number
+                                                                                        Input: number entered by user
+                                                                                        Processing: calculate the sum of the numbers.
+                                                                                        output: the result of the sum
+                                                                                        */
 
-                for(let i=0; i<=number; i++) {
-                    sum += i;
+        function computeAllNumberUp() {
+            let number = parseFloat(document.getElementById('numberAll').value);
+            let sum = 0;
 
-                }
-
-                // Display the result to the user.
-                document.getElementById('rate').innerHTML = sum;
+            for (let i = 0; i <= number; i++) {
+                sum += i;
 
             }
 
-            
-            function adds () {
-                let number  = parseFloat(document.getElementById('numberAll').value);
-                let number1 = parseFloat(document.getElementById('aditional').value);
-                let total = number + number1;
+            // Display the result to the user.
+            document.getElementById('rate').innerHTML = sum;
 
-                document.getElementById('rate').innerHTML = total;
+        };
 
-            }
 
-            const multiply = function different () {
-            let number  = parseFloat(document.getElementById('numberAll').value);
+        function adds() {
+            let number = parseFloat(document.getElementById('numberAll').value);
             let number1 = parseFloat(document.getElementById('aditional').value);
-            
-            different = number * number1; 
+            let total = number + number1;
+
+            document.getElementById('rate').innerHTML = total;
+
+        };
+
+        const multiply = () => {
+            let number = parseFloat(document.getElementById('numberAll').value);
+            let number1 = parseFloat(document.getElementById('aditional').value);
+            different = number * number1;
 
             document.getElementById('rate').innerHTML = different;
-            }
-            
+        };
 
-        </script>
-    </head>
+        const minus = function() {
+            let number = parseFloat(document.getElementById('numberAll').value);
+            let number1 = parseFloat(document.getElementById('aditional').value);
 
-    <body>
-        <h1>Compute Number</h1>
-        Number: <input type="text" id="numberAll"><br><br>
-        Number: <input type="text" id="aditional"><br><br>
-        <button type="button" onclick="computeAllNumberUp()">Calculate</button><br><br>
-        <button type="button" onclick="adds()">Total</button><br><br>
-        <button type="button" onclick="different()">Multiply</button><br><br>
-        Result<div id="rate"></div>
+            rest = number - number1;
+
+            document.getElementById('rate').innerHTML = rest;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Compute Number</h1>
+    Number: <input type="text" id="numberAll"><br><br> Number: <input type="text" id="aditional"><br><br>
+    <button type="button" onclick="computeAllNumberUp()">Calculate</button><br><br>
+    <button type="button" onclick="adds()">+</button><br><br>
+    <button type="button" onclick="minus()">-</button><br><br>
+    <button type="button" onclick="multiply()">*</button><br><br> Result
+    <div id="rate"></div>
 
 
-    </body>
+</body>
 
 </html>
