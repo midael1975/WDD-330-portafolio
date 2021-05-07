@@ -33,7 +33,8 @@ const game = {
             this.question = question;
             this.ask();
         }
-        // end of main game loop    
+        // end of main game loop 
+        view.hide(view.start);
         this.gameOver();
     },
 
@@ -60,7 +61,7 @@ const game = {
 }
 
 game.start(quiz);
-view.hide(view.start);
+
 
 
 view.start.addEventListener('click', () => game.start(quiz), false);
