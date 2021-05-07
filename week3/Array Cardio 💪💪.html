@@ -67,7 +67,7 @@
 
 
         const lessThan19 = people.some(function(e, year) {
-            return e < 2002;
+            return year < 2002;
         });
 
         console.log(lessThan19);
@@ -90,10 +90,10 @@
         // find the comment with the ID of 823423
 
         // Array.prototype.findIndex()
-        const index = comments.findIndex(id => id = 823423);
+        const index = comments.findIndex(comments => comments = 823423);
         console.log(comments[index]);
         /*function index(f) {
-            return f.comments === 823423;
+            return comments === 823423;
         }
 
         console.log(comments.findIndex(index));*/
