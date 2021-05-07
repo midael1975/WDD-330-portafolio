@@ -1,14 +1,18 @@
 {
-    "portfolio": [
-      {
-        "label":"Week 1", 
-        "url": "week1/index.html"
-      },
-      {
-        "label":"Week 2",
-        "url": "week 2/index.html"
+    "portfolio": [{
+            "label": "Week 1",
+            "url": "week1/index.html"
+        },
+        {
+            "label": "Week 2",
+            "url": "week 2/index.html"
 
-      }
-      
+        },
+        {
+            "label": "Week 3",
+            "url": "week 3/index.html"
+
+        }
+
     ]
-  }
+}
