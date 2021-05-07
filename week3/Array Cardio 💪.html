@@ -166,15 +166,45 @@
         console.log(years);
 
         // 5. Sort the inventors by years lived
+        inventors.sort(function(a, b) {
+            var young = a.passed - a.year; // ignore upper and lowercase
+            var old = b.passed - b.year; // ignore upper and lowercase
+            if (young < old) {
+                return 1;
+            }
+            if (young > old) {
+                return -1;
+            }
+
+            // names must be equal
+            return 0;
+        });
+        console.log(inventors);
 
         // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
         // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
-        // goto the link above and open the console. Paste the following two lines in.  That will create a list of links in memory that you can reference through the console. Use that list to finish the problem.
-        // const category = document.querySelector('.mw-category');
-        // const links = Array.from(category.querySelectorAll('a'));
+        /* goto the link above and open the console. Paste the following two lines in.  That 
+        will create a list of links in memory that you can reference through the console. 
+        Use that list to finish the problem.*/
+        //const category = document.querySelector('.mw-category');
+        //const links = Array.from(category.querySelectorAll('a'));
 
         // 7. sort Exercise
         // Sort the people alphabetically by last name
+        people.sort(function(a, b) {
+            var [alast, afirst] = a.split(' '); // ignore upper and lowercase
+            var [blast, bfirst] = b.split(' '); // ignore upper and lowercase
+            if (alast < blast) {
+                return 1;
+            }
+            if (alast > blast) {
+                return -1;
+            }
+
+            // names must be equal
+            return 0;
+        });
+        console.log(people);
 
         // 8. Reduce Exercise
         // Sum up the instances of each of these
@@ -194,6 +224,15 @@
             'car',
             'truck'
         ];
+        let count = data.reduce(function(allObj, name) {
+            if (name in allObj) {
+                allObj[name]++
+            } else {
+                allObj[name] = 1
+            }
+            return allObj
+        }, {})
+        console.log(count);
     </script>
 
 
