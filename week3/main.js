@@ -58,3 +58,26 @@ brokenLink.addEventListener('click', (event) => {
     event.preventDefault();
     console.log('Broken Link!');
 });
+
+ulElement = document.getElementById('list');
+liElement = document.querySelector('#list li');
+ulElement.addEventListener('click', (event) => console.log('Clicked on ul'));
+liElement.addEventListener('click', (event) => console.log('Clicked on li'));
+
+ulElement.addEventListener('click', (event) => console.log('Clicked on ul'), true);
+liElement.addEventListener('click', (event) => console.log('Clicked on li'), true);
+
+// capturing
+ulElement.addEventListener('click', (event) => console.log('Clicked on ul'), true);
+liElement.addEventListener('click', (event) => console.log('Clicked on li'), true);
+
+// bubbling
+ulElement.addEventListener('click', (event) => console.log('Clicked on ul'), false);
+liElement.addEventListener('click', (event) => console.log('Clicked on li'), false);
+
+liElement.addEventListener('click', (event) => {
+    console.log('clicked on li');
+    event.stopPropagation();
+}, false);
+
+ulElement.addEventListener('click', highlight);
