@@ -16,6 +16,26 @@
     <h2>Chapter 8, 12 and 15</h2>
 
     <p>
+        Programming applications containing web forms has always been one of the fundamental tasks of JavaScript. One of the main reasons the JavaScript programming language was invented was the need to validate form data directly in the user's browser. In this
+        way, it was avoided to reload the page when the user made mistakes when filling in the forms. Forms are a very common method of interacting with a web page.<br><br> One of the safest ways to access the elements of a form is to access the
+        forms on a page through their name (name attribute) or their id attribute. The document object allows direct access to any form through its name attribute.<br><br> Forms and their elements can also be accessed using direct node access DOM functions.
+        The following example uses the common document.getElementById () function to directly access a form and one of its elements.<br><br> Regardless of the method used to obtain the reference to a form element, each element has the following useful
+        properties for application development: 1. type: indicates the type of element in question. For elements of type <input> (text, button, checkbox, etc.) it matches the value of its type attribute.<br> 2. form: is a direct reference to the form
+        to which the element belongs. Thus, to access an element's form, you can use a document.getElementById ("element_id"). Form<br> 3. name: gets the value of the XHTML name attribute. Only its value can be read, so it cannot be modified.<br> 4. value:
+        allows reading and modifying the value of the XHTML value attribute. For text fields (<input type="text"> and <textarea>) it gets the text that the user has entered.<br><br>
+
+        The most used events in the handling of forms are the following:
+
+        1. onclick: event that occurs when an element is clicked with the mouse. It is normally 
+        used with any of the button types that XHTML allows to define (<input type = "button">, 
+        <input type = "submit">, <input type = "image">).<br>
+        2. change: an event that occurs when the user changes the value of a text element (<input 
+        type = "text"> or <textarea>). It also occurs when the user selects an option from a 
+        drop-down list (<select>).<br>
+        3. onfocus: an event that occurs when the user selects an element of the form.<br>
+        4. onblur: complementary event of onfocus, since it occurs when the user has deselected an 
+        element due to having selected another element of the form. Technically, the previous 
+        element is said to have "lost focus".<br>
 
 
     </p>
