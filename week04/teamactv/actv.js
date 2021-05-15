@@ -11,13 +11,13 @@ const STATUS_DISPLAY = document.querySelector('.game-notification'),
         [0, 4, 8],
         [2, 4, 6]
     ],
-    WIN_MESSAGE = () => `El jugador ${currentPlayer} ha ganado!`,
-    DRAW_MESSAGE = () => `El juego ha terminado en empate!`,
-    CURRENT_PLAYER_TURN = () => `Turno del jugador ${currentPlayer}`;
+    WIN_MESSAGE = () => `The player ${currentPlayer} has won!`,
+    DRAW_MESSAGE = () => `The game has ended in a tie!`,
+    CURRENT_PLAYER_TURN = () => `Player's turn ${currentPlayer}`;
 
 // ==================== VARIABLES ==================== //
-let gameActive = true;
-let currentPlayer = "O";
+let gameActive = true,
+    currentPlayer = "O";
 
 // ==================== FUNCTIONS ==================== //
 
@@ -28,27 +28,20 @@ function main() {
 
 main();
 
-function listeners() {
-    document.querySelector('.game-container').addEventListener('click', handleCellClick);
-    document.querySelector('.game-restart').addEventListener('click', handleRestartGame);
-}
-
 function handleStatusDisplay(message) {
     STATUS_DISPLAY.innerHTML = message;
 }
 
-function handleRestartGame() {
-    gameActive = true;
-    currentPlayer = "O";
-    restartGameState();
-    handleStatusDisplay(CURRENT_PLAYER_TURN());
-    document.querySelectorAll('.game-cell').forEach(cell => cell.innerHTML = "");
+function listeners() {
+    document.querySelector('.game-container').addEventListener('click', handleCellClick);
+    document.querySelector('.game-restart').addEventListener('click', handleRestartGame);
 }
 
 function handleCellClick(clickedCellEvent /** Type Event **/ ) {
     const clickedCell = clickedCellEvent.target;
     if (clickedCell.classList.contains('game-cell')) {
         const clickedCellIndex = Array.from(clickedCell.parentNode.children).indexOf(clickedCell);
+        console.log(clickedCellIndex);
         if (GAME_STATE[clickedCellIndex] !== '' || !gameActive) {
             return;
         }
@@ -57,6 +50,21 @@ function handleCellClick(clickedCellEvent /** Type Event **/ ) {
         handleResultValidation();
     }
     console.log(clickedCell);
+}
+
+function handleRestartGame() {
+    gameActive = true;
+    currentPlayer = "O";
+    restartGameState();
+    handleStatusDisplay(CURRENT_PLAYER_TURN());
+    document.querySelectorAll('.game-cell').forEach(cell => cell.innerText = "");
+}
+
+function restartGameState() {
+    let i = GAME_STATE.length;
+    while (i--) {
+        GAME_STATE[i] = '';
+    }
 }
 
 function handleCellPlayed(clickedCell, clickedCellIndex) {
@@ -68,9 +76,9 @@ function handleResultValidation() {
     let roundWon = false;
     for (let i = 0; i < WINNINGS.length; i++) { // Itera cada uno de las posibles combinaciones ganadores
         const winCondition = WINNINGS[i]; // Guarda la combinación por ejemplo: [0, 1, 2]
-        let position1 = GAME_STATE[winCondition[0]];
-        let position2 = GAME_STATE[winCondition[1]];
-        let position3 = GAME_STATE[winCondition[2]]; // Almacena el valor del estado actual del juego según las posiciones de winCondition
+        let position1 = GAME_STATE[winCondition[0]],
+            position2 = GAME_STATE[winCondition[1]],
+            position3 = GAME_STATE[winCondition[2]]; // Almacena el valor del estado actual del juego según las posiciones de winCondition
 
         if (position1 === '' || position2 === '' || position3 === '') {
             continue; // Si hay algún valor vacio nadie ha ganado aún
@@ -83,14 +91,14 @@ function handleResultValidation() {
 
     if (roundWon) {
         handleStatusDisplay(WIN_MESSAGE());
-        gameActive = true;
+        gameActive = false;
         return;
     }
 
     let roundDraw = !GAME_STATE.includes(""); // Si todas las celdas tienen valor y la sentencia anterior fue falsa entonces es empate
     if (roundDraw) {
         handleStatusDisplay(DRAW_MESSAGE());
-        gameActive = false;
+        game_active = false;
         return;
     }
 
@@ -98,13 +106,6 @@ function handleResultValidation() {
 }
 
 function handlePlayerChange() {
-    currentPlayer = currentPlayer === "X" ? "O" : "X";
+    currentPlayer = (currentPlayer === "X") ? "O" : "X";
     handleStatusDisplay(CURRENT_PLAYER_TURN());
-}
-
-function restartGameState() {
-    let i = GAME_STATE.length;
-    while (i--) {
-        GAME_STATE[i] = '';
-    }
 }
