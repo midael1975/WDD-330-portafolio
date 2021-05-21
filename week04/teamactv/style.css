@@ -14,8 +14,7 @@ table {
     margin: auto;
 }
 
-td,
-th {
+td {
     border: 1px solid;
     width: 100px;
     height: 100px;

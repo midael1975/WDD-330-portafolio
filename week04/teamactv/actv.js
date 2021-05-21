@@ -52,6 +52,7 @@ function handleCellClick(clickedCellEvent /** Type Event **/ ) {
     console.log(clickedCell);
 }
 
+
 function handleRestartGame() {
     gameActive = true;
     currentPlayer = "O";
@@ -69,7 +70,7 @@ function restartGameState() {
 
 function handleCellPlayed(clickedCell, clickedCellIndex) {
     GAME_STATE[clickedCellIndex] = currentPlayer; // Agrega en la posición correspondiente el valor ya sea "X" u "O" en el estado actual del juego
-    clickedCell.innerHTML = currentPlayer; // Agrega en el HTML el valor del jugador
+    clickedCell.innerText = currentPlayer; // Agrega en el HTML el valor del jugador
 }
 
 function handleResultValidation() {
