@@ -53,7 +53,7 @@ export default class Hikes {
             renderHikeList(this.parentElement, this.getAllHikes());
             this.addHikeListener();
             // make sure the back button is hidden
-            this.backButton.classList.add('hidden');
+            this.backButton.classList.add('hide');
         }
         // show one hike with full details in the parentElement
     showOneHike(hikeName) {
@@ -100,7 +100,7 @@ function renderOneHikeLight(hike) {
     item.setAttribute('data-name', hike.name);
     item.innerHTML = ` <h2>${hike.name}</h2>
 <div class="image"><img src="${imgBasePath}${hike.imgSrc}" alt="${hike.imgAlt}"></div>
-<div>
+<div id="mostrar" class="hidde">
       <div>
           <h3>Distance</h3>
           <p>${hike.distance}</p>
@@ -108,6 +108,14 @@ function renderOneHikeLight(hike) {
       <div>
           <h3>Difficulty</h3>
           <p>${hike.difficulty}</p>
+      </div>
+      <div>
+         <h3>Description</h3>
+         <p>${hike.description}</p>
+      </div>
+      <div>
+         <h3>Direction</h3>
+         <p>${hike.directions}</p>
       </div>
 </div>`;
 
@@ -139,4 +147,8 @@ function renderOneHikeFull(hike) {
   
   `;
     return item;
+}
+
+function toggleMenu() {
+    document.getElementById('mostrar').classList.toggle('hide');
 }
