@@ -5,7 +5,11 @@
         "contactinfo",
         "documento",
         "hike",
+        "html",
+        "index",
         "list",
-        "mult"
+        "mult",
+        "todoapp",
+        "week"
     ]
 }
