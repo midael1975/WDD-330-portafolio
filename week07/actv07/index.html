@@ -91,10 +91,25 @@
     <main>
         <h1>Great hikes</h1>
         <ul id="hikes" class="hikeStyles"></ul>
-        <section id="comments"></section>
+        <section id="comments">
+            <fieldset>
+                <legend>Insert Your Comments</legend>
+                <input id="caminata" type="text" placeholder="Name of the hike"><br><br>
+                <input id="date" type="date" placeholder="Date"><br><br>
+                <textarea id="comment" placeholder="your comment"></textarea><br><br>
+                <button id="btn" type="button">Insert Comment</button>
+            </fieldset>
+
+            <fieldset>
+                <legend>Local Storage</legend>
+                <div class="storage"></div>
+            </fieldset>
+
+        </section>
 
     </main>
 
+    <script src="new.js"></script>
     <script type="module" src="app7.js"></script>
 </body>
 
