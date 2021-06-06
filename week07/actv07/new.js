@@ -23,7 +23,7 @@ btn.onclick = function() {
         const value = localStorage.getItem(key);
         const write = localStorage.getItem(key);
 
-        storage.document.getElementById = ` ${key}: ${value}: ${write}`;
+        storage.btn.onclick.innerHTML = ` ${key}: ${value}: ${write}`;
     }
 
 
