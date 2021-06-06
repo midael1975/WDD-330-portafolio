@@ -65,7 +65,7 @@ function renderCommentList(element, comments) {
 
 // Comments: this code handles getting the list of comments from the data source, and outputting them to the screen at the right time.  This is often catagorized as Controller code.
 
-class Comments {
+export default class Comments {
     constructor(type, commentElementId) {
         this.type = type;
         this.commentElementId = commentElementId;
@@ -84,9 +84,10 @@ class Comments {
             this.showCommentList(postName);
         };
     }
+
     showCommentList(q = null) {
+        const parent = document.getElementById(this.commentElementId);
         try {
-            const parent = document.getElementById(this.commentElementId);
             if (!parent) throw new Error('comment parent not found');
             // check to see if the commentUI code has been added yet
             if (parent.innerHTML === '') {
@@ -112,5 +113,3 @@ class Comments {
         }
     }
 }
-
-export default Comments;

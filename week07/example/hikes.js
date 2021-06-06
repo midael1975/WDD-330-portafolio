@@ -1,4 +1,5 @@
 import Comments from './comments.js';
+
 // Example of using Classes and modules to organize the code needed to render our list of hikes. Not using MVC here.
 
 //create an array of hikes
@@ -47,7 +48,11 @@ export default class Hikes {
         }
         // For the first stretch we will need to get just one hike.
     getHikeByName(hikeName) {
-            return this.getAllHikes().find(hike => hike.name === hikeName);
+        return this.getAllHikes().find(hike => hike.name === hikeName);
+    }
+    showCommentList() {
+            console.log(comment)
+
         }
         //show a list of hikes in the parentElement
     showHikeList() {
