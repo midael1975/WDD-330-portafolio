@@ -13,5 +13,18 @@ btn.onclick = function() {
     console.log(value);
     console.log(write);
 
+    if (key & value & write) {
+        localStorage.setItem(key, value, write);
+        location.reload();
+    }
+
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        const value = localStorage.getItem(key);
+        const write = localStorage.getItem(key);
+
+        storage.document.getElementById = ` ${key}: ${value}: ${write}`;
+    }
+
 
 };
