@@ -65,24 +65,64 @@
             margin-bottom: -0.5em;
         }
         
-        #comments {
-            padding: 0.5em;
+        .wrap {
+            margin: auto;
+            max-width: 800px;
+            width: 90%;
         }
         
-        .addComment>h2 {
-            text-align: center;
-            background-color: indianred;
-        }
-        
-        .addComment input {
+        .principal {
+            background: #F44336;
+            border-top: 20px solid #D32F2F;
+            color: #fff;
+            padding: 50px 0;
             width: 100%;
-            border: 1px solid;
-            font-size: 1.2em;
         }
         
-        .addComment button {
-            padding: 0.5em;
-            border: 1px solid;
+        .principal .formulario {
+            color: #212121;
+            text-align: center;
+        }
+        
+        .principal .formulario input[type=text] input[type=date] {
+            margin-bottom: 20px;
+            padding: 100px;
+            width: 50%;
+        }
+        
+        .principal .formulario input[type=text] input[type=date] textarea.error {
+            border: 5px solid #D32F2F;
+            color: red;
+        }
+        
+        .principal .formulario textarea {
+            width: 80%;
+            height: 200px;
+        }
+        
+        .principal .formulario .boton {
+            background: none;
+            border: 1px solid #D32F2F;
+            color: #fff;
+            display: inline-block;
+            font-size: 16px;
+            padding: 15px;
+        }
+        
+        .principal .formulario .boton:hover {
+            border: 1px solid #fff;
+        }
+        /* - Tareas - */
+        
+        .tareas .lista {
+            list-style: none;
+        }
+        
+        .tareas .lista ul a {
+            color: #212121;
+            display: block;
+            padding: 20px 0;
+            text-decoration: none;
         }
     </style>
 </head>
@@ -91,21 +131,26 @@
     <main>
         <h1>Great hikes</h1>
         <ul id="hikes" class="hikeStyles"></ul>
-        <section id="comments">
-            <fieldset>
-                <legend>Insert Your Comments</legend>
-                <input id="caminata" type="text" placeholder="Name of the hike"><br><br>
-                <input id="date" type="date" placeholder="Date"><br><br>
-                <textarea id="comment" placeholder="your comment"></textarea><br><br>
-                <button id="btn" type="button">Insert Comment</button>
-            </fieldset>
+        <h2>Comments</h2>
+        <div class="principal">
+            <div class="wrap">
+                <form class="formulario" action="">
+                    <input type="text" id="tareaInput" placeholder="Add your Hike">
+                    <input type="date" id="tareaInput1" placeholder="Date"><br><br>
+                    <textarea type="textarea" id="tareaInput2" placeholder="Add your Comment"></textarea><br><br>
+                    <input type="button" class="boton" id="btn-agregar" value="Insert Comment">
+                </form>
+            </div>
+        </div>
 
-            <fieldset>
-                <legend>Local Storage</legend>
-                <div class="storage"></div>
-            </fieldset>
+        <div class="tareas">
+            <div class="wrap">
+                <ul class="lista" id="lista">
 
-        </section>
+
+                </ul>
+            </div>
+        </div>
 
     </main>
 

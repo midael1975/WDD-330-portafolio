@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WDD 330 Portfolio</title>
+</head>
+
+<body>
+    <header>
+        <h1>WDD 330 Portfolio</h1>
+        <h2>Wilker Pacheco</h2>
+    </header>
+
+    <section id="comments">
+        <fieldset>
+            <legend>Insert Your Comments</legend>
+            <input id="caminata" type="text" placeholder="Name of the hike"><br><br>
+            <input id="date" type="date" placeholder="Date"><br><br>
+            <button id="btn" type="button">Insert Comment</button>
+        </fieldset>
+
+        <fieldset>
+            <legend>Local Storage</legend>
+            <div class="storage"></div>
+        </fieldset>
+
+    </section>
+    <script>
+        const caminata = document.getElementById('caminata');
+        const date = document.getElementById('date');
+        const btn = document.getElementById('btn');
+        const storage = document.getElementById('storage');
+
+        btn.onclick = function() {
+            const key = caminata.value;
+            const value = date.value;
+
+
+            if (key & value) {
+                localStorage.setItem(key, value);
+                location.reload();
+            }
+
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                const value = localStorage.getItem(key);
+
+
+
+                storage.innerHTML += `${key}:${value}</br>`;
+            }
+
+
+        };
+    </script>
+
+</body>
+
+</html>
