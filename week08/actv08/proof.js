@@ -13,19 +13,23 @@ fetch(requestURL)
             let label = document.createElement('li');
             let a = document.createElement('a');
             let p = document.createElement('p');
-
-
+            let next = document.createElement('next');
+            let prev = document.createElement('prev');
 
             a.textContent = results[i].name;
+
             a.setAttribute('href', results[i].height, +'' + results[i].mass + '' +
                 results[i].hair_color + '' + results[i].skin_color);
             p.textContent = 'Height:' + '' + results[i].height + ',' + 'Mass:' + ',' +
                 results[i].mass + ',' +
                 'Hair Color:' + '' + results[i].hair_color + ',' + 'Skin Color:' + '' + results[i].skin_color;
-
+            next.setAttribute('href', results[i].next);
+            prev.setAttribute('href', results[i].previuos);
 
             label.appendChild(a);
             label.appendChild(p);
+            label.appendChild(next);
+            label.appendChild(prev);
 
 
             document.querySelector('ol.home').appendChild(label);
@@ -34,6 +38,14 @@ fetch(requestURL)
         }
 
     });
+
+
+function hide() {
+    const information = document.getElementsByTagName('li');
+    information.addEventListener("click", hide);
+
+    document.getElementById("<p>").innerHTML += "Clicked!<br>";
+}
 
 const URL = 'https://swapi.dev/api/people/?page=2';
 
