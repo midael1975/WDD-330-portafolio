@@ -6,7 +6,7 @@ fetch(requestURL)
     })
     .then(function(jsonObject) {
         console.table(jsonObject); // temporary checking for valid response and data parsing
-        const portfolio = jsonObject['portfolio'];
+        const portfolio = jsonObject.portfolio;
         for (let i = 0; i < portfolio.length; i++) {
             let label = document.createElement('li');
             let a = document.createElement('a');
