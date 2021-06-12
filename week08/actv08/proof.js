@@ -17,9 +17,7 @@ fetch(requestURL)
             let prev = document.createElement('prev');
 
             a.textContent = results[i].name;
-
-            a.setAttribute('href', results[i].height, +'' + results[i].mass + '' +
-                results[i].hair_color + '' + results[i].skin_color);
+            a.setAttribute('href', results[i].url);
             p.textContent = 'Height:' + '' + results[i].height + ',' + 'Mass:' + ',' +
                 results[i].mass + ',' +
                 'Hair Color:' + '' + results[i].hair_color + ',' + 'Skin Color:' + '' + results[i].skin_color;
@@ -40,14 +38,16 @@ fetch(requestURL)
     });
 
 
-function hide() {
-    const information = document.getElementsByTagName('li');
-    information.addEventListener("click", hide);
+function listener() {
+    document.querySelector(li).addEventListener("click", show);
 
-    document.getElementById("<p>").innerHTML += "Clicked!<br>";
 }
 
-const URL = 'https://swapi.dev/api/people/?page=2';
+function show() {
+    p.show();
+}
+
+/*const URL = 'https://swapi.dev/api/people/?page=2';
 
 fetch(URL)
     .then(function(response) {
@@ -69,10 +69,13 @@ fetch(URL)
             p.textContent = 'Height:' + '' + results[i].height + ',' + 'Mass:' + ',' +
                 results[i].mass + ',' +
                 'Hair Color:' + '' + results[i].hair_color + ',' + 'Skin Color:' + '' + results[i].skin_color;
-
+            next.setAttribute('href', results[i].next);
+            prev.setAttribute('href', results[i].previuos);
 
             label.appendChild(a);
             label.appendChild(p);
+            label.appendChild(next);
+            label.appendChild(prev);
 
 
             document.querySelector('ol.home').appendChild(label);
@@ -80,7 +83,7 @@ fetch(URL)
 
         }
 
-    });
+    });*/
 
 // controller code
 /*function showResults(url = "https://swapi.dev/api/people/") {
