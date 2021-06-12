@@ -12,15 +12,20 @@ fetch(requestURL)
         for (let i = 0; i < results.length; i++) {
             let label = document.createElement('li');
             let a = document.createElement('a');
+            let p = document.createElement('p');
 
 
 
             a.textContent = results[i].name;
             a.setAttribute('href', results[i].height, +'' + results[i].mass + '' +
                 results[i].hair_color + '' + results[i].skin_color);
+            p.textContent = 'Height:' + '' + results[i].height + ',' + 'Mass:' + ',' +
+                results[i].mass + ',' +
+                'Hair Color:' + '' + results[i].hair_color + ',' + 'Skin Color:' + '' + results[i].skin_color;
 
 
             label.appendChild(a);
+            label.appendChild(p);
 
 
             document.querySelector('ol.home').appendChild(label);
@@ -43,15 +48,19 @@ fetch(URL)
         for (let i = 0; i < results.length; i++) {
             let label = document.createElement('li');
             let a = document.createElement('a');
+            let p = document.createElement('p');
 
 
 
             a.textContent = results[i].name;
-            a.setAttribute('href', results[i].height, +'' + results[i].mass + '' +
-                results[i].hair_color + '' + results[i].skin_color);
+            a.setAttribute('href', results[i].url);
+            p.textContent = 'Height:' + '' + results[i].height + ',' + 'Mass:' + ',' +
+                results[i].mass + ',' +
+                'Hair Color:' + '' + results[i].hair_color + ',' + 'Skin Color:' + '' + results[i].skin_color;
 
 
             label.appendChild(a);
+            label.appendChild(p);
 
 
             document.querySelector('ol.home').appendChild(label);
