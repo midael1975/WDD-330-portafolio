@@ -38,16 +38,9 @@ fetch(requestURL)
     });
 
 
-function listener() {
-    document.querySelector(li).addEventListener("click", show);
 
-}
 
-function show() {
-    p.show();
-}
-
-/*const URL = 'https://swapi.dev/api/people/?page=2';
+const URL = 'https://swapi.dev/api/people/?page=2';
 
 fetch(URL)
     .then(function(response) {
@@ -83,7 +76,7 @@ fetch(URL)
 
         }
 
-    });*/
+    });
 
 // controller code
 /*function showResults(url = "https://swapi.dev/api/people/") {
