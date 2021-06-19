@@ -29,7 +29,6 @@ fetch(requestURL)
             label.appendChild(next);
             label.appendChild(prev);
 
-
             document.querySelector('ol.home').appendChild(label);
 
 
@@ -37,10 +36,33 @@ fetch(requestURL)
 
     });
 
+function mostrar() {
+    document.getElementsByTagName('p').display = 'block';
+}
+
+function ocultar() {
+    document.getElementsByTagName('p').display = 'none';
+}
+
+function mostrar_ocultar() {
+    var p = document.getElementsByTagName('p');
+
+    if (p.style == "none") {
+        mostrar();
+        document.getElementById('boton').value = "Ocultar";
+    } else {
+        ocultar();
+        document.getElementById('boton').value = "Mostrar";
+    }
+
+}
 
 
 
-const URL = 'https://swapi.dev/api/people/?page=2';
+
+
+
+/*const URL = 'https://swapi.dev/api/people/?page=2';
 
 fetch(URL)
     .then(function(response) {

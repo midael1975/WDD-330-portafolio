@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mostrar y Ocultar</title>
+</head>
+<script>
+    function mostrar() {
+        document.getElementById('expresion').style.display = 'block';
+    }
+
+    function ocultar() {
+        document.getElementById('expresion').style.display = 'none';
+    }
+
+    function mostrar_ocultar() {
+        var expresion = document.getElementById('expresion');
+
+        if (expresion.style.display == "none") {
+            mostrar();
+            document.getElementById('boton').value = "Ocultar";
+        } else {
+            ocultar();
+            document.getElementById('boton').value = "Mostrar";
+        }
+    }
+</script>
+
+<body>
+
+    <ol>
+        <li>Sape gato
+            <p id="expresion">Vacie!</p>
+            <input type="submit" id="boton" value="Ocultar" onclick="mostrar_ocultar()">
+        </li>
+    </ol>
+
+</body>
+
+</html>
