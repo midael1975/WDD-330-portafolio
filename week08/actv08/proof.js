@@ -37,17 +37,17 @@ fetch(requestURL)
     });
 
 function mostrar() {
-    document.getElementsByTagName('p').display = 'block';
+    document.getElementsByTagName('ol').display = 'block';
 }
 
 function ocultar() {
-    document.getElementsByTagName('p').display = 'none';
+    document.getElementsByTagName('ol').display = 'none';
 }
 
 function mostrar_ocultar() {
-    var p = document.getElementsByTagName('p');
+    var ol = document.getElementsByTagName('ol');
 
-    if (p.style == "none") {
+    if (ol.style == "none") {
         mostrar();
         document.getElementById('boton').value = "Ocultar";
     } else {
