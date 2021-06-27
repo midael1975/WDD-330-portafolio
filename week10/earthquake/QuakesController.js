@@ -17,13 +17,13 @@ export default class QuakesController {
         this.quakes = new Quake();
         this.quakesView = new QuakesView();
     }
-    init() {
+    async init() {
         // use this as a place to grab the element identified by this.parent, do the initial call of this.initPos(), and display some quakes by calling this.getQuakesByRadius()
         this.parentElement = document.querySelector(this.parent);
-        this.initPos();
+        await this.initPos();
         this.getQuakesByRadius(100);
     }
-    initPos() {
+    async initPos() {
         // if a position has not been set
         if (this.position.lat === 0) {
             try {
@@ -37,12 +37,12 @@ export default class QuakesController {
         }
     }
 
-    getQuakesByRadius(radius = 100) {
+    async getQuakesByRadius(radius = 100) {
         // this method provides the glue between the model and view. Notice it first goes out and requests the appropriate data from the model, then it passes it to the view to be rendered.
         //set loading message
         this.parentElement.innerHTML = 'Loading';
         // get the list of quakes in the specified radius of the location
-        const quakeList = this.quakes.getEarthQuakesByRadius(
+        const quakeList = await this.quakes.getEarthQuakesByRadius(
             this.position,
             100
         );
@@ -53,7 +53,7 @@ export default class QuakesController {
             this.getQuakeDetails(e.target.dataset.id);
         });
     }
-    getQuakeDetails(quakeId) {
+    async getQuakeDetails(quakeId) {
         // get the details for the quakeId provided from the model, then send them to the view to be displayed
 
     }
