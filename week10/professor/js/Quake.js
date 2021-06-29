@@ -8,7 +8,7 @@ export default class Quake {
         this._quakes = [];
     }
     getEarthQuakesByRadius(position, radius = 100) {
-        this._quakes = await;
+        this._quakes = [];
         getJSON(
             this.baseUrl +
             `&starttime=2019-01-01&endtime=2019-03-02&latitude=${
