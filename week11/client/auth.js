@@ -1,30 +1,91 @@
-// Server Address
-const baseURL = 'http://127.0.0.1:3000/';
-// helper function to make an http request with fetch.
-// returns a json object
-async function makeRequest(url, method = 'GET', body = null) {
-    // we will need to set some custom options for our fetch call
-    let options = {
-        method: method,
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    };
-    // if we are sending any data with the request add it here
-    if (method == 'POST' || method == 'PUT') {
-        options.body = JSON.stringify(body);
+//Auth class which provides basic JWT based authentication for our app.
+// Requires: access to the makeRequest function
+import { makeRequest } from './authHelpers.js';
+
+export default class Auth {
+    constructor(errorHandler) {
+        this.jwtToken = '';
+        this.user = {};
+        this.errors = errorHandler;
     }
 
-    const response = await fetch(baseURL + url, options);
-    // in this case we are processing the response as JSON before we check the status. The API we are using will send back more meaningful error messages than the default messages in the response, but we have to convert it before we can get to them.
-    const data = await response.json();
+    async login(callback) {
+            const password = document.getElementById('password');
+            const username = document.getElementById('username');
+            const postData = {
+                email: username.value,
+                password: password.value
+            };
+            try {
+                const data = await makeRequest('login', 'POST', postData);
+                // a successful response...we have a token!  Store it since we will need to send it with every request to the API.
+                this.jwtToken = data.accessToken;
+                // let's get the user details as well and store them locally in the class
+                this.user = await this.getCurrentUser(username.value);
+                console.log(data);
 
-    if (!response.ok) {
-        // server will send a 500 server error if the token expires...or a 401 if we are not authorized, ie bad username/password combination, and a 404 if the URL we requested does not exist. All of these would cause response.ok to be false
+                // hide the login form.
+                hideLogin();
+                // clear the password
+                password.value = '';
+                // clear any errors from the login process
+                this.errors.clearError();
+                // since we have a token let's go grab some data from the API
+                callback();
+            } catch (error) {
+                // if there were any errors display them
+                this.errors.handleError(error);
+                console.log(error);
+            }
+        }
+        // uses the email of the currently logged in user to pull up the full user details for that user from the database
+    async getCurrentUser(email) {
+        try {
+            const data = await makeRequest(
+                'users?email=' + email,
+                'GET',
+                null,
+                this.jwtToken
+            );
 
-        console.log(response);
-        throw new Error(`${data.status}: ${data.message}`);
-    } else return data;
+            console.log(data);
+            return data[0];
+        } catch (error) {
+            // if there were any errors display them
+            this.errors.handleError(error);
 
-    // not catching the error here...so we will need to catch it later on and handle it.
+            console.log(error);
+        }
+    }
+    async updateUser() {
+        // after logging in we pulled down the user from the api...including the id...we can use that to do our update.
+
+        this.user.age = 40;
+        try {
+            const result = await makeRequest(
+                'users/' + this.user.id,
+                'PUT',
+                this.user,
+                this.jwtToken
+            );
+            console.log('Update user:', result);
+        } catch (error) {
+            this.errors.handleError(error, showLogin);
+        }
+    }
+
+    set token(value) {
+        // we need this for the getter to work...but we don't want to allow setting the token through this so we are leaving it blank.
+    }
+    get token() {
+        return this.jwtToken;
+    }
+} // end auth class
+
+function showLogin() {
+    document.getElementById('login').classList.remove('hidden');
+}
+
+function hideLogin() {
+    document.getElementById('login').classList.add('hidden');
 }

@@ -24,10 +24,10 @@ export default function buildNavigation(parent) {
 }
 
 // makes an AJAX request for the html file found at viewPath and returns it as text
-async function getViewAsync(viewPath) {
+function getViewAsync(viewPath) {
     try {
-        const response = await fetch(viewPath);
-        const text = await response.text();
+        const response = fetch(viewPath);
+        const text = response.text();
 
         return text;
     } catch (err) {
@@ -51,9 +51,9 @@ function addNavEventAsync(element, path, controller) {
 // inserts the view into the content area of index.html
 // remember that getView returns a promise!
 // runs a function from the controller to load any dynamic elements
-async function insertViewAsync(viewPromise, controller) {
+function insertViewAsync(viewPromise, controller) {
     const contentElement = document.getElementById('content');
     //debugger;
-    contentElement.innerHTML = await viewPromise;
+    contentElement.innerHTML = viewPromise;
     controller.init();
 }

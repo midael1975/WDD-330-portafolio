@@ -12,6 +12,44 @@
 <body>
     <main>
         <h1>Auth example</h1>
+
+        <div id="errors" class="errors hidden"></div>
+        <div id="login">
+
+            <form action="#" method="post">
+                <label for="username">
+                <input type="email" name="username" id="username" placeholder="exmaple@email.com" required>
+            </label><br><br>
+
+
+                <span>The password must be at least 8 characters and contain at least 1 number, 1 capital 
+                letter and<br> 1 special character</span><br>
+                <label for="password">
+                <input type="password" name="password" id="password"required> 
+            </label><br><br>
+
+                <input type="submit" name="submit" id="regbtn" value="Login">
+            </form><br>
+
+            <div id="token-display"></div>
+        </div>
+
+        <div id="content" class="hidden">
+            <form name="postForm">
+                <div>
+                    <label for="title">Title</label><br>
+                    <input type="text" class="form-control" name="title" placeholder="title" required />
+                </div>
+                <div>
+                    <label for="content">Content</label><br>
+                    <input type="text" class="form-control" name="content" placeholder="content" required />
+                </div>
+                <div id="postError"></div>
+
+                <input type="submit" id="createSubmit" />
+            </form>
+            <ul id="list"></ul>
+        </div>
     </main>
 
 </body>

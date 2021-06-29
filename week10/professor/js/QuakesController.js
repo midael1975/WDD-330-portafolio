@@ -14,15 +14,15 @@ export default class QuakesController {
         this.quakes = new Quake();
         this.quakesView = new QuakesView();
     }
-    async init() {
+    init() {
         this.parentElement = document.querySelector(this.parent);
-        await this.initPos();
+        this.initPos();
         this.getQuakesByRadius(100);
     }
-    async initPos() {
+    initPos() {
         if (this.position.lat === 0) {
             try {
-                const posFull = await getLocation();
+                const posFull = getLocation();
                 this.position.lat = posFull.coords.latitude;
                 this.position.lon = posFull.coords.longitude;
                 //console.log(posFull);
@@ -32,11 +32,11 @@ export default class QuakesController {
         }
     }
 
-    async getQuakesByRadius(radius = 100) {
+    getQuakesByRadius(radius = 100) {
         //set loading message
         this.parentElement.innerHTML = '<li>Loading</li>';
         // get the list of quakes in the specified radius of the location
-        const quakeList = await this.quakes.getEarthQuakesByRadius(
+        const quakeList = this.quakes.getEarthQuakesByRadius(
             this.position,
             radius = 100
         );
@@ -47,7 +47,7 @@ export default class QuakesController {
             this.getQuakeDetails(e.target.dataset.id);
         });
     }
-    async getQuakeDetails(quakeId) {
+    getQuakeDetails(quakeId) {
         const quake = this.quakes.getQuakeById(quakeId);
         this.quakesView.renderQuake(quake, this.parentElement);
     }
