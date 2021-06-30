@@ -1,9 +1,9 @@
 import Quake from './Quake.js';
 import QuakesView from './QuakesView.js';
-import getLocation from './utilities.js';
+import { getLocation } from './utilities.js';
 
 // Quake controller
-export default class QuakesController {
+export class QuakesController {
     constructor(parent, position = null) {
         this.parent = parent;
         // sometimes the DOM won't exist/be ready when the Class gets instantiated, so we will set this later in the init()
