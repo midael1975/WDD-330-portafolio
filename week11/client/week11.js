@@ -10,7 +10,7 @@ const myErrors = new Errors('errors');
 const myAuth = new Auth(myErrors);
 
 const loginForm = document.getElementById('login');
-loginForm.querySelector('button').addEventListener('click', () => {
+loginForm.querySelector('#button').addEventListener('click', () => {
     myAuth.login(getPosts);
 });
 async function getPosts() {

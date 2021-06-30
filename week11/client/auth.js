@@ -2,7 +2,7 @@
 // Requires: access to the makeRequest function
 import { makeRequest } from './authHelpers.js';
 
-export default class Auth {
+export class Auth {
     constructor(errorHandler) {
         this.jwtToken = '';
         this.user = {};
