@@ -74,7 +74,7 @@ export class Auth {
         }
     }
 
-    set token(value) {
+    set token(_value) {
         // we need this for the getter to work...but we don't want to allow setting the token through this so we are leaving it blank.
     }
     get token() {
