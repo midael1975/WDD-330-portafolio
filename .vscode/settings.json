@@ -14,5 +14,6 @@
         "object",
         "todoapp",
         "week"
-    ]
+    ],
+    "liveServer.settings.port": 5501
 }
