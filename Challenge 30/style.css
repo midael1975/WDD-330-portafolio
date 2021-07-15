@@ -4,25 +4,35 @@ body {
     font-family: "Open Sans", sans-serif;
 }
 
-header, ol {
+header,
+ol,
+footer,
+section {
     margin: 1rem auto;
     max-width: 950px;
 }
 
+footer {
+    padding: 10px;
+}
 
-header {
+header,
+footer {
     background: rgb(95, 53, 71);
     color: white;
     text-align: center;
 }
-
 
 ol a {
     color: #DC0073;
     font-size: 1.2em;
 }
 
-ol a:hover{
-	color: red;
-	background-color: #89FC00;
+ol a:hover {
+    color: red;
+    background-color: #89FC00;
+}
+
+img {
+    border: 1px solid;
 }
