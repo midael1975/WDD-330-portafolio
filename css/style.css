@@ -14,6 +14,7 @@ section {
 
 footer {
     padding: 10px;
+    margin-top: 50px;
 }
 
 header,
@@ -34,5 +35,5 @@ ol a:hover {
 }
 
 img {
-    border: 1px solid;
+    border: 1px solid
 }
